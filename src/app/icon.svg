@@ -1,0 +1,20 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="migsak-accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#a855f7" />
+    </linearGradient>
+  </defs>
+  <!-- Rounded-square dark navy background -->
+  <rect width="64" height="64" rx="14" fill="#0b1020" />
+  <rect x="1" y="1" width="62" height="62" rx="13" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1.5" />
+  
+  <!-- Left stem and diagonal -->
+  <path d="M16 47V22L32 38" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- Right diagonal and stem -->
+  <path d="M32 38L48 22V47" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- Indigo-to-violet accent gem in the top-right corner with clean breathing space -->
+  <circle cx="51" cy="13" r="4" fill="url(#migsak-accent)" />
+</svg>

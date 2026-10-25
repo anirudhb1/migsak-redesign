@@ -14,9 +14,10 @@ export type BudgetOption =
 export interface EnquiryInput {
   name: string;
   email: string;
+  country?: string;
   phone?: string;
   service: ServiceOption;
-  budget: BudgetOption;
+  budget?: BudgetOption;
   message: string;
   honeypot?: string;
 }
@@ -26,6 +27,7 @@ export interface EnquiryRecord {
   created_at: string;
   name: string;
   email: string;
+  country?: string | null;
   phone: string | null;
   service: string;
   budget: string;
