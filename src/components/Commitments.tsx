@@ -1,3 +1,5 @@
+"use client";
+
 import Reveal from "./Reveal";
 
 export default function Commitments() {
@@ -40,17 +42,11 @@ export default function Commitments() {
         {/* Section Header with Pill Badge and Side Lines */}
         <Reveal className="text-center max-w-2xl mx-auto">
           <div className="inline-flex items-center gap-3 mb-4">
-            <span
-              className="h-px w-8 bg-gradient-to-r from-transparent to-violet-400/50"
-              aria-hidden="true"
-            />
+            <span className="h-px w-8 bg-gradient-to-r from-transparent to-violet-400/50" aria-hidden="true" />
             <span className="inline-flex items-center rounded-full border border-violet-500/25 bg-violet-950/40 px-3.5 py-1 text-xs font-mono font-medium tracking-wide text-violet-300">
               What you can hold us to
             </span>
-            <span
-              className="h-px w-8 bg-gradient-to-l from-transparent to-violet-400/50"
-              aria-hidden="true"
-            />
+            <span className="h-px w-8 bg-gradient-to-l from-transparent to-violet-400/50" aria-hidden="true" />
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
@@ -63,16 +59,20 @@ export default function Commitments() {
           </p>
         </Reveal>
 
-        {/* 4 Commitments Grid with 80ms Staggered Reveals */}
+        {/* 4 Commitments Grid with Staggered Spring-Pop Tick Icons */}
         <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2">
           {commitments.map((c, idx) => (
             <Reveal
               key={idx}
-              delayMs={idx * 80}
+              delayMs={idx * 90}
               className="flex flex-col"
             >
-              <div className="glass-card flex-1 flex items-start gap-4 rounded-2xl p-6 sm:p-7">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-violet-500/15 border border-violet-500/30 text-violet-300 shadow-[0_0_12px_rgba(139,92,246,0.2)]">
+              <div className="glass-card flex-1 flex items-start gap-4 rounded-2xl p-6 sm:p-7 hover:border-violet-400/30 transition-all">
+                {/* Spring Pop Icon */}
+                <div
+                  style={{ animationDelay: `${idx * 120 + 200}ms` }}
+                  className="animate-spring-pop flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-violet-500/15 border border-violet-500/30 text-violet-300 shadow-[0_0_12px_rgba(139,92,246,0.2)]"
+                >
                   <span className="font-bold text-sm">✓</span>
                 </div>
                 <div>

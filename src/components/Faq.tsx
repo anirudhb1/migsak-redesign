@@ -41,17 +41,11 @@ export default function Faq() {
         {/* Section Header with Pill Badge and Side Lines */}
         <Reveal className="text-center max-w-2xl mx-auto">
           <div className="inline-flex items-center gap-3 mb-4">
-            <span
-              className="h-px w-8 bg-gradient-to-r from-transparent to-violet-400/50"
-              aria-hidden="true"
-            />
+            <span className="h-px w-8 bg-gradient-to-r from-transparent to-violet-400/50" aria-hidden="true" />
             <span className="inline-flex items-center rounded-full border border-violet-500/25 bg-violet-950/40 px-3.5 py-1 text-xs font-mono font-medium tracking-wide text-violet-300">
               Questions owners ask
             </span>
-            <span
-              className="h-px w-8 bg-gradient-to-l from-transparent to-violet-400/50"
-              aria-hidden="true"
-            />
+            <span className="h-px w-8 bg-gradient-to-l from-transparent to-violet-400/50" aria-hidden="true" />
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
@@ -71,7 +65,7 @@ export default function Faq() {
             return (
               <div
                 key={idx}
-                className="glass-card rounded-2xl border border-white/10 p-5 sm:p-6 transition-all"
+                className="glass-card rounded-2xl border border-white/10 p-5 sm:p-6 transition-all duration-300 hover:border-violet-400/30"
               >
                 <button
                   type="button"
@@ -80,15 +74,27 @@ export default function Faq() {
                   aria-expanded={isOpen}
                 >
                   <span className="pr-4 tracking-tight">{faq.q}</span>
-                  <span className="ml-2 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-violet-300 text-sm font-mono transition-transform duration-200">
-                    {isOpen ? "−" : "+"}
+                  <span
+                    className={`ml-2 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-violet-300 text-base font-mono transition-transform duration-300 ${
+                      isOpen ? "rotate-45 border-violet-400/40 text-violet-200 bg-violet-500/20" : ""
+                    }`}
+                  >
+                    +
                   </span>
                 </button>
-                {isOpen && (
-                  <div className="mt-3.5 pt-3.5 border-t border-white/[0.06] text-sm sm:text-base leading-relaxed text-[#A8B3CF]">
-                    <p>{faq.a}</p>
+
+                {/* Smooth Height CSS Grid Transition */}
+                <div
+                  className={`grid transition-all duration-300 ease-in-out ${
+                    isOpen ? "grid-rows-[1fr] opacity-100 mt-3.5 pt-3.5 border-t border-white/[0.06]" : "grid-rows-[0fr] opacity-0"
+                  }`}
+                >
+                  <div className="overflow-hidden">
+                    <p className="text-sm sm:text-base leading-relaxed text-[#A8B3CF]">
+                      {faq.a}
+                    </p>
                   </div>
-                )}
+                </div>
               </div>
             );
           })}

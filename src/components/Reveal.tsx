@@ -2,11 +2,14 @@
 
 import React, { useEffect, useRef } from "react";
 
+export type RevealVariant = "up" | "down" | "left" | "right" | "scale" | "fade";
+
 interface RevealProps {
   children: React.ReactNode;
   className?: string;
   delayMs?: number;
   durationMs?: number;
+  variant?: RevealVariant;
   as?: React.ElementType;
 }
 
@@ -15,6 +18,7 @@ export default function Reveal({
   className = "",
   delayMs = 0,
   durationMs = 500,
+  variant = "up",
   as: Component = "div",
 }: RevealProps) {
   const ref = useRef<HTMLElement | null>(null);
@@ -23,7 +27,7 @@ export default function Reveal({
     const el = ref.current;
     if (!el) return;
 
-    // Respect prefers-reduced-motion: do not animate if user opted out
+    // Respect prefers-reduced-motion: stay visible immediately
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       return;
     }
@@ -32,11 +36,17 @@ export default function Reveal({
       return;
     }
 
-    // Progressive enhancement:
-    // Only apply the initial hidden state on the client once JS is confirmed active.
-    // This ensures content is 100% visible if JavaScript fails to load or run.
+    // Determine initial transform based on variant
+    let initialTransform = "translate3d(0, 18px, 0)";
+    if (variant === "down") initialTransform = "translate3d(0, -18px, 0)";
+    if (variant === "left") initialTransform = "translate3d(-24px, 0, 0)";
+    if (variant === "right") initialTransform = "translate3d(24px, 0, 0)";
+    if (variant === "scale") initialTransform = "scale(0.95)";
+    if (variant === "fade") initialTransform = "translate3d(0, 0, 0)";
+
+    // Progressive enhancement: only hide once client JS is initialized
     el.style.opacity = "0";
-    el.style.transform = "translate3d(0, 16px, 0)";
+    el.style.transform = initialTransform;
     el.style.transitionProperty = "opacity, transform";
     el.style.transitionDuration = `${durationMs}ms`;
     el.style.transitionTimingFunction = "cubic-bezier(0.22, 1, 0.36, 1)";
@@ -46,7 +56,7 @@ export default function Reveal({
       ([entry]) => {
         if (entry.isIntersecting) {
           el.style.opacity = "1";
-          el.style.transform = "translate3d(0, 0, 0)";
+          el.style.transform = "translate3d(0, 0, 0) scale(1)";
           observer.unobserve(el);
         }
       },
@@ -61,7 +71,7 @@ export default function Reveal({
     return () => {
       observer.disconnect();
     };
-  }, [delayMs, durationMs]);
+  }, [delayMs, durationMs, variant]);
 
   return (
     <Component ref={ref} className={className}>

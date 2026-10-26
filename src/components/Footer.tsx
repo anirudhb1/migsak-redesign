@@ -22,14 +22,22 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative border-t border-white/10 bg-[#060916] overflow-hidden">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+    <footer className="relative border-t border-white/10 bg-[#050814] overflow-hidden pt-16 pb-12">
+      {/* Large faint Migsak wordmark watermark at the bottom */}
+      <div
+        className="pointer-events-none absolute -bottom-6 left-1/2 -translate-x-1/2 w-full text-center text-[14vw] font-black tracking-tighter text-white/[0.02] select-none leading-none z-0"
+        aria-hidden="true"
+      >
+        MIGSAK
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-4 lg:grid-cols-5">
           {/* Brand info */}
           <div className="md:col-span-2">
             <Link
               href="/"
-              className="flex items-center gap-2 text-2xl font-bold tracking-tight text-white hover:text-violet-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 rounded-md transition-colors"
+              className="flex items-center gap-2.5 text-2xl font-bold tracking-tight text-white hover:text-violet-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 rounded-md transition-colors"
               aria-label="Migsak Home"
             >
               <span className="flex h-2.5 w-2.5 rounded-full bg-violet-400 shadow-[0_0_8px_#a78bfa]" />
@@ -43,9 +51,10 @@ export default function Footer() {
                 <strong className="text-white font-medium">Email:</strong>{" "}
                 <a
                   href="mailto:contact@migsak.com"
-                  className="text-violet-300 hover:text-white transition-colors underline underline-offset-2"
+                  className="group relative inline-block text-violet-300 hover:text-white transition-colors"
                 >
                   contact@migsak.com
+                  <span className="absolute bottom-0 left-0 h-px w-full bg-violet-400 scale-x-100 transition-transform origin-left" />
                 </a>
               </p>
               <p>
@@ -66,9 +75,10 @@ export default function Footer() {
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-white transition-colors"
+                    className="group relative inline-block hover:text-white transition-colors"
                   >
                     {item.name}
+                    <span className="absolute bottom-0 left-0 h-px w-0 bg-violet-400 transition-all duration-200 group-hover:w-full" />
                   </a>
                 </li>
               ))}
@@ -87,9 +97,10 @@ export default function Footer() {
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-white transition-colors"
+                    className="group relative inline-block hover:text-white transition-colors"
                   >
                     {item.name}
+                    <span className="absolute bottom-0 left-0 h-px w-0 bg-violet-400 transition-all duration-200 group-hover:w-full" />
                   </a>
                 </li>
               ))}
@@ -108,18 +119,20 @@ export default function Footer() {
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-white transition-colors"
+                    className="group relative inline-block hover:text-white transition-colors"
                   >
                     {item.name}
+                    <span className="absolute bottom-0 left-0 h-px w-0 bg-violet-400 transition-all duration-200 group-hover:w-full" />
                   </a>
                 </li>
               ))}
               <li className="pt-2 border-t border-white/[0.08]">
                 <Link
                   href="/admin/login"
-                  className="text-xs font-mono text-[#7E8BA8] hover:text-violet-300 transition-colors inline-flex items-center gap-1.5"
+                  className="text-xs font-mono text-[#7E8BA8] hover:text-violet-300 transition-colors inline-flex items-center gap-1.5 group"
                 >
-                  🔒 Admin Portal
+                  <span>🔒 Admin Portal</span>
+                  <span className="text-[10px] text-violet-400 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
                 </Link>
               </li>
             </ul>

@@ -1,4 +1,7 @@
+"use client";
+
 import Reveal from "./Reveal";
+import TiltCard from "./TiltCard";
 
 export default function SelectedWork() {
   return (
@@ -13,17 +16,11 @@ export default function SelectedWork() {
         {/* Section Header with Pill Badge and Side Lines */}
         <Reveal className="text-center max-w-2xl mx-auto">
           <div className="inline-flex items-center gap-3 mb-4">
-            <span
-              className="h-px w-8 bg-gradient-to-r from-transparent to-violet-400/50"
-              aria-hidden="true"
-            />
+            <span className="h-px w-8 bg-gradient-to-r from-transparent to-violet-400/50" aria-hidden="true" />
             <span className="inline-flex items-center rounded-full border border-violet-500/25 bg-violet-950/40 px-3.5 py-1 text-xs font-mono font-medium tracking-wide text-violet-300">
               Selected work
             </span>
-            <span
-              className="h-px w-8 bg-gradient-to-l from-transparent to-violet-400/50"
-              aria-hidden="true"
-            />
+            <span className="h-px w-8 bg-gradient-to-l from-transparent to-violet-400/50" aria-hidden="true" />
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
@@ -36,14 +33,14 @@ export default function SelectedWork() {
           </p>
         </Reveal>
 
-        {/* Bento-Style Portfolio Grid with 80ms Staggered Reveals */}
+        {/* Bento-Style Portfolio Grid with 3D Tilt, Spotlight Glow & Conic Gradient Borders */}
         <div className="mt-14 grid grid-cols-1 gap-6 lg:grid-cols-12">
-          {/* Project 1: Recurva (Bento Span 6 on LG, 0ms delay) */}
+          {/* Project 1: Recurva (Bento Span 6 on LG) */}
           <Reveal delayMs={0} className="lg:col-span-6 flex flex-col">
-            <article className="glass-card flex-1 flex flex-col justify-between rounded-2xl p-7 sm:p-8">
+            <TiltCard featured={true} className="flex-1 flex flex-col justify-between p-7 sm:p-8">
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-xs font-mono text-violet-300">
+                  <span className="text-xs font-mono text-emerald-400">
                     Mobile App & Platform
                   </span>
                   <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold font-mono border border-emerald-500/30 bg-emerald-500/10 text-emerald-300">
@@ -59,80 +56,67 @@ export default function SelectedWork() {
                   Retention platform for service businesses like gyms and fitness studios.
                 </p>
 
-                {/* Custom SVG: Recurva Retention & Biometrics Wireframe */}
+                {/* Custom Abstract SVG Art: Retention Loop Arcs */}
                 <div
-                  className="mt-5 rounded-xl border border-white/[0.08] bg-[#090e24]/70 p-4"
+                  className="mt-6 rounded-xl border border-white/[0.08] bg-[#090e24]/70 p-4 flex items-center justify-center overflow-hidden h-36 relative"
                   aria-hidden="true"
                 >
-                  <div className="flex items-center justify-between pb-2 mb-2 border-b border-white/[0.06]">
-                    <div className="flex items-center gap-2">
-                      <span className="h-2 w-2 rounded-full bg-emerald-400" />
-                      <span className="text-[11px] font-mono text-zinc-300">Gym Member Retention</span>
-                    </div>
-                    <span className="text-[10px] font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800/60">
-                      Active
-                    </span>
-                  </div>
-                  <div className="flex items-center justify-between text-[11px] text-[#A8B3CF]">
-                    <span>Biometric Check-in</span>
-                    <span className="text-violet-300">WhatsApp 1-Tap Check-in</span>
-                  </div>
+                  <svg className="w-full h-full max-w-[280px]" viewBox="0 0 280 120" fill="none">
+                    {/* Concentric Retention Loop Arcs */}
+                    <ellipse cx="140" cy="60" rx="110" ry="45" stroke="#10b981" strokeWidth="1.5" strokeOpacity="0.4" strokeDasharray="6 4" className="animate-dash-travel" />
+                    <ellipse cx="140" cy="60" rx="80" ry="32" stroke="#6366f1" strokeWidth="2" strokeOpacity="0.6" />
+                    <ellipse cx="140" cy="60" rx="45" ry="18" stroke="#10b981" strokeWidth="2.5" />
+                    {/* Pulsing Central Node */}
+                    <circle cx="140" cy="60" r="5" fill="#10b981" />
+                    <circle cx="140" cy="60" r="9" stroke="#10b981" strokeOpacity="0.5" className="animate-ping" />
+                    {/* Moving Satellite Node */}
+                    <circle cx="220" cy="60" r="4" fill="#a78bfa" />
+                  </svg>
+                  <span className="absolute bottom-2 right-3 text-[10px] font-mono text-[#7E8BA8]">
+                    Illustration · Retention Loops
+                  </span>
                 </div>
 
-                <ul className="mt-5 space-y-2 text-xs sm:text-sm text-[#A8B3CF]">
-                  <li className="flex items-start gap-2">
-                    <span className="text-violet-400 font-bold shrink-0">•</span>
-                    <span>Spots members who are slipping and gives staff automated follow-ups</span>
+                {/* Architectural Features */}
+                <ul className="mt-6 space-y-2 text-xs sm:text-sm text-[#A8B3CF]">
+                  <li className="flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                    <span>WhatsApp check-ins & automated renewal nudges</span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-violet-400 font-bold shrink-0">•</span>
-                    <span>One-tap customer check-ins via WhatsApp</span>
+                  <li className="flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                    <span>Biometric attendance hardware integration</span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-violet-400 font-bold shrink-0">•</span>
-                    <span>Separate dedicated portals for owners, staff, and members</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-violet-400 font-bold shrink-0">•</span>
-                    <span>In-app membership renewals powered by Razorpay; biometric attendance</span>
+                  <li className="flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                    <span>In-app membership purchases via Razorpay</span>
                   </li>
                 </ul>
-
-                <div className="mt-5 flex flex-wrap gap-1.5">
-                  {["Flutter", "Node.js", "PostgreSQL", "Razorpay", "WhatsApp"].map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-2 py-0.5 rounded-md bg-white/[0.04] border border-white/[0.08] text-[11px] font-mono text-[#A8B3CF]"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
               </div>
 
-              <div className="mt-7 pt-4 border-t border-white/[0.08]">
-                <a
-                  href="https://recurva.in"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-1.5 text-sm font-semibold text-violet-300 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 rounded"
-                >
-                  <span>Visit recurva.in</span>
-                  <span className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true">↗</span>
-                </a>
+              {/* Stack tags */}
+              <div className="mt-8 pt-5 border-t border-white/[0.08] flex flex-wrap gap-2">
+                {["Flutter", "Node.js", "PostgreSQL", "Razorpay"].map((tech) => (
+                  <span
+                    key={tech}
+                    className="inline-flex items-center rounded-md border border-white/10 bg-white/[0.03] px-2.5 py-1 text-xs font-mono text-zinc-300"
+                  >
+                    {tech}
+                  </span>
+                ))}
               </div>
-            </article>
+            </TiltCard>
           </Reveal>
 
-          {/* Project 2: Prathik Softnet (Bento Span 6 on LG, 80ms delay) */}
+          {/* Project 2: Prathik Softnet (Bento Span 6 on LG) */}
           <Reveal delayMs={80} className="lg:col-span-6 flex flex-col">
-            <article className="glass-card flex-1 flex flex-col justify-between rounded-2xl p-7 sm:p-8">
+            <TiltCard featured={true} className="flex-1 flex flex-col justify-between p-7 sm:p-8">
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-xs font-mono text-indigo-300">
-                    Company Website & Search Presence
+                  <span className="text-xs font-mono text-cyan-400">
+                    Enterprise Web Presence
                   </span>
-                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold font-mono border border-emerald-500/30 bg-emerald-500/10 text-emerald-300">
+                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold font-mono border border-cyan-500/30 bg-cyan-500/10 text-cyan-300">
                     Production
                   </span>
                 </div>
@@ -142,158 +126,146 @@ export default function SelectedWork() {
                 </h3>
 
                 <p className="mt-2 text-sm text-[#A8B3CF] leading-relaxed">
-                  Enterprise IT hardware and infrastructure partner in Bengaluru and Delhi working with Dell, HP, Cisco, Lenovo.
+                  Enterprise IT hardware solutions partner in Bengaluru & Delhi.
                 </p>
 
-                {/* Custom SVG: IT Hardware & Enterprise Node Card */}
+                {/* Custom Abstract SVG Art: Grid of Page Tiles */}
                 <div
-                  className="mt-5 rounded-xl border border-white/[0.08] bg-[#090e24]/70 p-4"
+                  className="mt-6 rounded-xl border border-white/[0.08] bg-[#090e24]/70 p-4 flex items-center justify-center overflow-hidden h-36 relative"
                   aria-hidden="true"
                 >
-                  <div className="flex items-center justify-between pb-2 mb-2 border-b border-white/[0.06]">
-                    <div className="flex items-center gap-2">
-                      <span className="h-2 w-2 rounded-full bg-indigo-400" />
-                      <span className="text-[11px] font-mono text-zinc-300">Enterprise IT Architecture</span>
-                    </div>
-                    <span className="text-[10px] font-mono text-[#A8B3CF]">20+ Pages Built</span>
-                  </div>
-                  <div className="flex justify-between text-[11px] text-zinc-400">
-                    <span>Dell · HP · Cisco · Lenovo</span>
-                    <span className="text-indigo-300">Quote Pipeline</span>
-                  </div>
+                  <svg className="w-full h-full max-w-[280px]" viewBox="0 0 280 120" fill="none">
+                    {/* Perspective Page Tile Grid */}
+                    <g opacity="0.85">
+                      <rect x="30" y="25" width="60" height="35" rx="5" fill="#06b6d4" fillOpacity="0.12" stroke="#06b6d4" strokeWidth="1.5" />
+                      <rect x="110" y="25" width="60" height="35" rx="5" fill="#3b82f6" fillOpacity="0.12" stroke="#3b82f6" strokeWidth="1.5" />
+                      <rect x="190" y="25" width="60" height="35" rx="5" fill="#06b6d4" fillOpacity="0.12" stroke="#06b6d4" strokeWidth="1.5" />
+
+                      <rect x="50" y="68" width="60" height="35" rx="5" fill="#3b82f6" fillOpacity="0.15" stroke="#3b82f6" strokeWidth="1.5" />
+                      <rect x="130" y="68" width="60" height="35" rx="5" fill="#06b6d4" fillOpacity="0.15" stroke="#06b6d4" strokeWidth="1.5" />
+                      <rect x="210" y="68" width="60" height="35" rx="5" fill="#3b82f6" fillOpacity="0.15" stroke="#3b82f6" strokeWidth="1.5" />
+
+                      {/* Data Connecting Lines */}
+                      <line x1="90" y1="42" x2="110" y2="42" stroke="#06b6d4" strokeWidth="1.5" strokeDasharray="3 3" />
+                      <line x1="170" y1="42" x2="190" y2="42" stroke="#3b82f6" strokeWidth="1.5" strokeDasharray="3 3" />
+                    </g>
+                  </svg>
+                  <span className="absolute bottom-2 right-3 text-[10px] font-mono text-[#7E8BA8]">
+                    Illustration · 20+ Page Grid
+                  </span>
                 </div>
 
-                <ul className="mt-5 space-y-2 text-xs sm:text-sm text-[#A8B3CF]">
-                  <li className="flex items-start gap-2">
-                    <span className="text-indigo-400 font-bold shrink-0">•</span>
-                    <span>Had no prior web presence; built modern company website from scratch</span>
+                {/* Architectural Features */}
+                <ul className="mt-6 space-y-2 text-xs sm:text-sm text-[#A8B3CF]">
+                  <li className="flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
+                    <span>20+ specialized product & vendor pages built from scratch</span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-indigo-400 font-bold shrink-0">•</span>
-                    <span>20+ comprehensive pages covering solutions, industries, product lines, case studies</span>
+                  <li className="flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
+                    <span>Search presence across Dell, HP, Cisco, and Lenovo categories</span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-indigo-400 font-bold shrink-0">•</span>
-                    <span>Full technical search setup (titles, descriptions, local business data, sitemap)</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-indigo-400 font-bold shrink-0">•</span>
-                    <span>Clear path to request a quote engineered into every single page</span>
+                  <li className="flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
+                    <span>Direct quote request pipeline capturing verified B2B leads</span>
                   </li>
                 </ul>
-
-                <div className="mt-5 flex flex-wrap gap-1.5">
-                  {["React", "Tailwind CSS", "Vercel", "Search Presence"].map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-2 py-0.5 rounded-md bg-white/[0.04] border border-white/[0.08] text-[11px] font-mono text-[#A8B3CF]"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
               </div>
 
-              <div className="mt-7 pt-4 border-t border-white/[0.08]">
-                <a
-                  href="https://www.prathiksoftnet.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-300 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 rounded"
-                >
-                  <span>Visit prathiksoftnet.com</span>
-                  <span className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true">↗</span>
-                </a>
+              {/* Stack tags */}
+              <div className="mt-8 pt-5 border-t border-white/[0.08] flex flex-wrap gap-2">
+                {["React", "Tailwind CSS", "Vercel", "B2B SEO"].map((tech) => (
+                  <span
+                    key={tech}
+                    className="inline-flex items-center rounded-md border border-white/10 bg-white/[0.03] px-2.5 py-1 text-xs font-mono text-zinc-300"
+                  >
+                    {tech}
+                  </span>
+                ))}
               </div>
-            </article>
+            </TiltCard>
           </Reveal>
 
-          {/* Project 3: QuietPass (Bento Span 12, 160ms delay) */}
+          {/* Project 3: QuietPass (Bento Span 12 on LG) */}
           <Reveal delayMs={160} className="lg:col-span-12 flex flex-col">
-            <article className="glass-card flex-1 flex flex-col justify-between rounded-2xl p-7 sm:p-8">
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-xs font-mono text-amber-300">
-                    iOS & Android App
-                  </span>
-                  {/* MUST remain labeled "In progress" per content rule */}
-                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold font-mono border border-amber-500/30 bg-amber-500/10 text-amber-300">
-                    In progress
-                  </span>
-                </div>
-
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-                  <div className="lg:col-span-7">
-                    <h3 className="text-2xl font-bold text-white tracking-tight">
-                      QuietPass
-                    </h3>
-
-                    <p className="mt-2 text-sm sm:text-base text-[#A8B3CF] leading-relaxed">
-                      Privacy-first household coordination application.
-                    </p>
-
-                    <ul className="mt-5 space-y-2 text-xs sm:text-sm text-[#A8B3CF]">
-                      <li className="flex items-start gap-2">
-                        <span className="text-amber-400 font-bold shrink-0">•</span>
-                        <span>Live presence status for members</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-amber-400 font-bold shrink-0">•</span>
-                        <span>Room reservations with automated conflict protection</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-amber-400 font-bold shrink-0">•</span>
-                        <span>Anonymous nudges delivered as mobile push notifications</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-amber-400 font-bold shrink-0">•</span>
-                        <span>Already running in production and with the client for testing</span>
-                      </li>
-                    </ul>
-
-                    <div className="mt-5 flex flex-wrap gap-1.5">
-                      {["Flutter", "FastAPI", "PostgreSQL", "Redis", "Firebase", "Google Cloud Run"].map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-2 py-0.5 rounded-md bg-white/[0.04] border border-white/[0.08] text-[11px] font-mono text-[#A8B3CF]"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
+            <TiltCard featured={true} className="flex-1 flex flex-col justify-between p-7 sm:p-8">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div className="lg:col-span-7">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="text-xs font-mono text-violet-400">
+                      Mobile App & Cloud Architecture
+                    </span>
+                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold font-mono border border-amber-500/30 bg-amber-500/10 text-amber-300">
+                      In progress
+                    </span>
                   </div>
 
-                  {/* Custom SVG: Coordination App Room & Status Preview */}
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                    QuietPass
+                  </h3>
+
+                  <p className="mt-2 text-sm sm:text-base text-[#A8B3CF] leading-relaxed">
+                    Privacy-first household coordination application currently in client testing.
+                  </p>
+
+                  <ul className="mt-5 space-y-2 text-xs sm:text-sm text-[#A8B3CF]">
+                    <li className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-violet-400" />
+                      <span>Live presence indicators & room reservation schedule</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-violet-400" />
+                      <span>Anonymous gentle nudge notifications without awkward confrontation</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-violet-400" />
+                      <span>Low-latency state syncing with Redis pub/sub and FastAPI</span>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Custom Abstract SVG Art: Soft Presence Dots */}
+                <div className="lg:col-span-5 flex justify-center">
                   <div
-                    className="lg:col-span-5 rounded-xl border border-white/[0.08] bg-[#090e24]/70 p-4"
+                    className="w-full max-w-sm rounded-xl border border-white/[0.08] bg-[#090e24]/70 p-5 flex items-center justify-center overflow-hidden h-40 relative"
                     aria-hidden="true"
                   >
-                    <div className="space-y-2.5">
-                      <div className="flex items-center justify-between p-2.5 rounded-lg bg-white/[0.03] border border-white/[0.05]">
-                        <div className="flex items-center gap-2">
-                          <span className="h-2 w-2 rounded-full bg-emerald-400" />
-                          <span className="text-xs text-white">Quiet Room 1</span>
-                        </div>
-                        <span className="text-[11px] font-mono text-emerald-300">Reserved (Protected)</span>
-                      </div>
-                      <div className="flex items-center justify-between p-2.5 rounded-lg bg-white/[0.03] border border-white/[0.05]">
-                        <div className="flex items-center gap-2">
-                          <span className="h-2 w-2 rounded-full bg-amber-400" />
-                          <span className="text-xs text-white">Study Zone</span>
-                        </div>
-                        <span className="text-[11px] font-mono text-[#A8B3CF]">Anonymous Nudge Sent</span>
-                      </div>
-                    </div>
+                    <svg className="w-full h-full" viewBox="0 0 240 120" fill="none">
+                      {/* Presence ripple circles */}
+                      <circle cx="60" cy="60" r="30" stroke="#8b5cf6" strokeOpacity="0.25" strokeWidth="1.5" />
+                      <circle cx="60" cy="60" r="15" fill="#8b5cf6" fillOpacity="0.2" />
+                      <circle cx="60" cy="60" r="6" fill="#a78bfa" />
+
+                      <circle cx="120" cy="40" r="24" stroke="#fb7185" strokeOpacity="0.3" strokeWidth="1.5" />
+                      <circle cx="120" cy="40" r="12" fill="#fb7185" fillOpacity="0.2" />
+                      <circle cx="120" cy="40" r="5" fill="#fda4af" />
+
+                      <circle cx="180" cy="65" r="35" stroke="#8b5cf6" strokeOpacity="0.25" strokeWidth="1.5" />
+                      <circle cx="180" cy="65" r="18" fill="#8b5cf6" fillOpacity="0.2" />
+                      <circle cx="180" cy="65" r="7" fill="#c084fc" />
+
+                      {/* Gentle connecting waves */}
+                      <path d="M60 60 Q 90 20, 120 40 T 180 65" stroke="#a78bfa" strokeOpacity="0.4" strokeWidth="1.5" strokeDasharray="4 4" className="animate-dash-travel" />
+                    </svg>
+                    <span className="absolute bottom-2 right-3 text-[10px] font-mono text-[#7E8BA8]">
+                      Illustration · Presence Dots
+                    </span>
                   </div>
                 </div>
               </div>
 
-              <div className="mt-7 pt-4 border-t border-white/[0.08]">
-                <span className="inline-flex items-center gap-1.5 text-xs font-mono text-[#A8B3CF]">
-                  🔒 Active Client Testing Phase (Production Deployment)
-                </span>
+              {/* Stack tags */}
+              <div className="mt-8 pt-5 border-t border-white/[0.08] flex flex-wrap gap-2">
+                {["Flutter", "FastAPI", "PostgreSQL", "Redis", "Firebase", "Cloud Run"].map((tech) => (
+                  <span
+                    key={tech}
+                    className="inline-flex items-center rounded-md border border-white/10 bg-white/[0.03] px-2.5 py-1 text-xs font-mono text-zinc-300"
+                  >
+                    {tech}
+                  </span>
+                ))}
               </div>
-            </article>
+            </TiltCard>
           </Reveal>
         </div>
       </div>

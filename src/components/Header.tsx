@@ -1,18 +1,46 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import MagneticButton from "./MagneticButton";
+
+const NAV_LINKS = [
+  { label: "Services", href: "#services", id: "services" },
+  { label: "Work", href: "#work", id: "work" },
+  { label: "Process", href: "#process", id: "process" },
+  { label: "Commitments", href: "#commitments", id: "commitments" },
+  { label: "FAQ", href: "#faq", id: "faq" },
+];
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("");
 
-  const navLinks = [
-    { label: "Services", href: "#services" },
-    { label: "Work", href: "#work" },
-    { label: "Process", href: "#process" },
-    { label: "Commitments", href: "#commitments" },
-    { label: "FAQ", href: "#faq" },
-  ];
+  // Scroll-spy active section observer
+  useEffect(() => {
+    if (typeof window === "undefined" || !("IntersectionObserver" in window)) return;
+
+    const sectionElements = NAV_LINKS
+      .map((link) => document.getElementById(link.id))
+      .filter((el): el is HTMLElement => Boolean(el));
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      {
+        threshold: 0.3,
+        rootMargin: "-20% 0px -40% 0px",
+      }
+    );
+
+    sectionElements.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <header className="sticky top-3 z-50 w-full px-4 sm:px-6 lg:px-8">
@@ -22,37 +50,52 @@ export default function Header() {
           {/* Wordmark Logo */}
           <Link
             href="/"
-            className="flex items-center gap-2 text-lg font-bold tracking-tight text-white hover:text-violet-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 rounded-full px-2 py-1 transition-colors"
+            className="flex items-center gap-2.5 text-lg font-bold tracking-tight text-white hover:text-violet-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 rounded-full px-2 py-1 transition-colors"
             aria-label="Migsak Home"
           >
-            <span className="flex h-2 w-2 rounded-full bg-violet-400 shadow-[0_0_8px_#a78bfa]" />
-            <span>Migsak</span>
+            <span className="flex h-2.5 w-2.5 rounded-full bg-violet-400 shadow-[0_0_8px_#a78bfa] animate-pulse" />
+            <span className="font-extrabold tracking-tight">Migsak</span>
           </Link>
 
-          {/* Desktop Navigation Links */}
+          {/* Desktop Navigation Links with Scroll-Spy Indicator */}
           <nav className="hidden md:flex items-center gap-1 text-sm font-medium text-[#A8B3CF]">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="px-3.5 py-1.5 rounded-full hover:text-white hover:bg-white/[0.06] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400"
-              >
-                {link.label}
-              </a>
-            ))}
+            {NAV_LINKS.map((link) => {
+              const isActive = activeSection === link.id;
+              return (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className={`relative px-3.5 py-1.5 rounded-full transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 ${
+                    isActive
+                      ? "text-white bg-white/[0.1] shadow-inner font-semibold"
+                      : "hover:text-white hover:bg-white/[0.05]"
+                  }`}
+                >
+                  {link.label}
+                  {isActive && (
+                    <span
+                      className="absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 w-4 rounded-full bg-violet-400 shadow-[0_0_6px_#a78bfa]"
+                      aria-hidden="true"
+                    />
+                  )}
+                </a>
+              );
+            })}
           </nav>
 
-          {/* Desktop CTA */}
+          {/* Desktop CTA with Magnetic Hover */}
           <div className="hidden md:flex items-center">
-            <a
-              href="#enquiry"
-              className="btn-primary inline-flex h-9 items-center justify-center gap-1.5 rounded-full px-4 text-xs font-semibold tracking-wide focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080c1d]"
-            >
-              <span>Start a project</span>
-              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </a>
+            <MagneticButton maxOffset={4}>
+              <a
+                href="#enquiry"
+                className="btn-primary inline-flex h-9 items-center justify-center gap-1.5 rounded-full px-4 text-xs font-semibold tracking-wide focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080c1d]"
+              >
+                <span>Start a project</span>
+                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </a>
+            </MagneticButton>
           </div>
 
           {/* Mobile Menu Hamburger */}
@@ -77,16 +120,17 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Mobile Dropdown Menu */}
+        {/* Mobile Dropdown Menu with Smooth Staggered Slide-down */}
         {mobileMenuOpen && (
-          <div className="mt-2 rounded-2xl border border-white/10 bg-[#090e23]/95 p-4 shadow-2xl backdrop-blur-2xl md:hidden">
+          <div className="mt-2 rounded-2xl border border-white/10 bg-[#090e23]/95 p-4 shadow-2xl backdrop-blur-2xl md:hidden animate-page-enter">
             <nav className="flex flex-col gap-1.5">
-              {navLinks.map((link) => (
+              {NAV_LINKS.map((link, idx) => (
                 <a
                   key={link.label}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex h-11 items-center rounded-xl px-4 text-sm font-medium text-[#A8B3CF] hover:bg-white/[0.08] hover:text-white transition-colors"
+                  style={{ animationDelay: `${idx * 40}ms` }}
+                  className="flex h-11 items-center rounded-xl px-4 text-sm font-medium text-[#A8B3CF] hover:bg-white/[0.08] hover:text-white transition-colors animate-page-enter"
                 >
                   {link.label}
                 </a>

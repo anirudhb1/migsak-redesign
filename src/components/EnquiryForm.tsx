@@ -15,6 +15,18 @@ import {
   VALID_BUDGETS,
 } from "@/lib/validation";
 import Reveal from "./Reveal";
+import EnquiryTravelDemo from "./EnquiryTravelDemo";
+
+const CONFETTI_PARTICLES = Array.from({ length: 24 }).map((_, i) => {
+  const colors = ["#a855f7", "#6366f1", "#f59e0b", "#10b981", "#ec4899"];
+  return {
+    color: colors[i % colors.length],
+    left: `${i * 4.2 + 2}%`,
+    delay: `${(i % 5) * 60}ms`,
+    size: i % 2 === 0 ? "8px" : "6px",
+    animIndex: i % 4,
+  };
+});
 
 export default function EnquiryForm() {
   const countryOptions = useMemo(() => getCountryList(), []);
@@ -36,6 +48,17 @@ export default function EnquiryForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const [serverMessage, setServerMessage] = useState<string>("");
+  const [isShaking, setIsShaking] = useState(false);
+  const [showConfetti, setShowConfetti] = useState(false);
+
+  // Live required fields counter
+  const requiredCompleted = useMemo(() => {
+    let count = 0;
+    if (formData.name.trim().length >= 2) count++;
+    if (formData.email.trim().includes("@") && formData.email.trim().includes(".")) count++;
+    if (formData.message.trim().length >= 10) count++;
+    return count;
+  }, [formData.name, formData.email, formData.message]);
 
   // Refs for focusing first invalid field on failed submit
   const nameInputRef = useRef<HTMLInputElement>(null);
@@ -145,6 +168,9 @@ export default function EnquiryForm() {
     setFieldErrors(errors);
 
     if (!valid) {
+      setIsShaking(true);
+      setTimeout(() => setIsShaking(false), 450);
+
       // Focus the first invalid field
       if (errors.name) {
         nameInputRef.current?.focus();
@@ -173,6 +199,8 @@ export default function EnquiryForm() {
 
       if (!response.ok) {
         setSubmitStatus("error");
+        setIsShaking(true);
+        setTimeout(() => setIsShaking(false), 450);
         setServerMessage(
           data.error || "Unable to send your project details. Please try again or email contact@migsak.com."
         );
@@ -191,6 +219,8 @@ export default function EnquiryForm() {
       }
 
       setSubmitStatus("success");
+      setShowConfetti(true);
+      setTimeout(() => setShowConfetti(false), 3500);
       setServerMessage(
         data.message || "Thank you! We have received your project details and will reply within one working day."
       );
@@ -263,13 +293,50 @@ export default function EnquiryForm() {
             </p>
           </Reveal>
 
-          <Reveal delayMs={80} className="mt-12">
-            <div className="glass-card rounded-2xl border border-white/10 p-5 sm:p-8 md:p-10 shadow-2xl">
+          {/* Feature 3: Watch an Enquiry Travel mini-demo */}
+          <div className="mt-12">
+            <EnquiryTravelDemo />
+          </div>
+
+          <Reveal delayMs={80} className="mt-6">
+            <div
+              className={`glass-card rounded-2xl border border-white/10 p-5 sm:p-8 md:p-10 shadow-2xl relative overflow-hidden transition-transform ${
+                isShaking ? "animate-form-shake border-red-500/50" : ""
+              }`}
+            >
+              {/* Confetti Burst Overlay on Success */}
+              {showConfetti && (
+                <div className="pointer-events-none absolute inset-0 z-30 overflow-hidden" aria-hidden="true">
+                  {CONFETTI_PARTICLES.map((p, i) => (
+                    <span
+                      key={i}
+                      className="absolute top-0 rounded-full"
+                      style={{
+                        left: p.left,
+                        width: p.size,
+                        height: p.size,
+                        backgroundColor: p.color,
+                        animation: `confetti-fall-${p.animIndex} 2.5s cubic-bezier(0.25, 1, 0.5, 1) ${p.delay} forwards`,
+                      }}
+                    />
+                  ))}
+                </div>
+              )}
+
               {submitStatus === "success" ? (
-                <div role="status" className="py-10 text-center">
-                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-violet-500/20 text-violet-300 border border-violet-500/30 mb-4 shadow-[0_0_16px_rgba(139,92,246,0.3)]">
-                    <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M5 13l4 4L19 7" />
+                <div role="status" className="py-10 text-center relative z-20">
+                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 mb-4 shadow-[0_0_24px_rgba(16,185,129,0.3)] animate-spring-pop">
+                    {/* Animated SVG stroke draw checkmark */}
+                    <svg className="h-8 w-8 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2.8}
+                        d="M5 13l4 4L19 7"
+                        strokeDasharray={30}
+                        strokeDashoffset={0}
+                        className="transition-all duration-700 ease-out"
+                      />
                     </svg>
                   </div>
                   <h3 className="text-2xl font-bold text-white tracking-tight">
@@ -290,6 +357,17 @@ export default function EnquiryForm() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} noValidate className="space-y-6">
+                  {/* Live Required Fields Completion Progress Indicator */}
+                  <div className="flex items-center justify-between pb-3.5 border-b border-white/[0.08] text-xs font-mono text-[#A8B3CF]">
+                    <span className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-violet-400 animate-pulse" />
+                      Required fields progress:
+                    </span>
+                    <span className="font-semibold text-violet-300">
+                      {requiredCompleted} of 3 completed
+                    </span>
+                  </div>
+
                   {/* Honeypot field for bot protection (visually hidden) */}
                   <div className="hidden" aria-hidden="true">
                     <label htmlFor="company-fax">Leave this field blank</label>
