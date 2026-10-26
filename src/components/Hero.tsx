@@ -194,7 +194,7 @@ export default function Hero() {
               >
                 contact@migsak.com
               </a>
-              {" "}· Guaranteed reply within one working day.
+              {" "}· A reply to every message within one working day.
             </p>
           </div>
 

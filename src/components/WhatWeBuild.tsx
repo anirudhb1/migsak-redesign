@@ -16,8 +16,8 @@ export default function WhatWeBuild() {
       description:
         "Company websites, dashboards, and portals, built to load fast and be found on search engines.",
       highlights: [
-        "Fast-loading Next.js & React architectures",
-        "Search engine optimization (SEO) built into structure",
+        "Company websites, dashboards and portals",
+        "Built to load fast and be found on search",
         "Role-based authenticated client & admin portals",
       ],
     },
@@ -26,10 +26,10 @@ export default function WhatWeBuild() {
       tag: "iOS & Android",
       title: "Mobile apps",
       description:
-        "Cross-platform iOS and Android apps with offline support, push notifications, and hardware integrations.",
+        "iOS and Android apps for customers, field teams and members, built cross-platform and shipped to both stores.",
       highlights: [
-        "Unified cross-platform Flutter codebase",
-        "Offline-first local caching and synchronization",
+        "Built cross-platform for iOS and Android",
+        "For customers, field teams and members",
         "Shipped directly to Apple App Store & Google Play",
       ],
     },
@@ -38,11 +38,11 @@ export default function WhatWeBuild() {
       tag: "Workflows & APIs",
       title: "Automation and integrations",
       description:
-        "Connecting your customer-facing apps to WhatsApp, payment gateways, and enterprise accounting or ERP systems.",
+        "WhatsApp flows, AI assistants and links to Razorpay, Stripe, Zoho, Tally and ERPNext.",
       highlights: [
-        "Automated WhatsApp notification & intake flows",
-        "Payment gateway webhooks (Razorpay & Stripe)",
-        "Bi-directional sync with Zoho, Tally, and ERPNext",
+        "Automated WhatsApp flows and customer intake",
+        "AI assistants and links to Razorpay & Stripe",
+        "Links to Zoho, Tally, and ERPNext",
       ],
     },
   ];
@@ -215,7 +215,7 @@ export default function WhatWeBuild() {
                           <div className="h-4 w-32 rounded bg-white/25 font-mono text-xs text-white" />
                         </div>
                         <span className="px-2 py-1 rounded bg-violet-500/20 text-[10px] font-mono text-violet-300">
-                          Production Portal
+                          Example Dashboard
                         </span>
                       </div>
 

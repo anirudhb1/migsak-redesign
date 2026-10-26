@@ -6,7 +6,7 @@ export default function Commitments() {
   const commitments = [
     {
       title: "One-day response time",
-      rule: "Reply to every message within one working day",
+      rule: "A reply to every message within one working day",
       explanation:
         "No disappearing or waiting days for an update. Every email and question is acknowledged and answered promptly.",
     },
@@ -17,16 +17,16 @@ export default function Commitments() {
         "You never have to guess what is happening behind the scenes. Review clickable, testable milestones on real devices.",
     },
     {
-      title: "100% intellectual property ownership",
+      title: "Intellectual property ownership",
       rule: "Code, designs and accounts owned by you from day one",
       explanation:
-        "All git repositories, Figma design assets, domain names, and third-party hosting accounts are created in your name.",
+        "All code repositories, design assets, domain names, and third-party hosting accounts are created in your name.",
     },
     {
-      title: "Zero unexpected costs",
-      rule: "Any scope change quoted in writing before starting",
+      title: "Written quotes for changes",
+      rule: "Any change to scope quoted in writing before we start it",
       explanation:
-        "If project requirements evolve, we assess the impact, provide a written cost estimate, and wait for your go-ahead first.",
+        "If project requirements evolve, we assess the impact, provide a written quote, and wait for your go-ahead first.",
     },
   ];
 

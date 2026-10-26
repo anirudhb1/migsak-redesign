@@ -9,19 +9,19 @@ export default function Faq() {
   const faqs = [
     {
       q: "How does pricing work?",
-      a: "Pricing is a fixed quote after the first call. We review your requirements, determine the scope, and provide a single transparent quote with no surprise fees. Any subsequent scope changes are always quoted in writing before starting.",
+      a: "Pricing is a fixed quote after the first call. We review your requirements, determine the scope, and provide a fixed quote. Any change to scope is quoted in writing before we start it.",
     },
     {
       q: "What budget sizes do you work with?",
-      a: "Any budget. We can start with a single feature or MVP and grow from there as your business needs scale.",
+      a: "Any budget. We can start with a single feature and grow from there.",
     },
     {
       q: "How is the project timeline established?",
-      a: "The timeline is established during our initial scoping call and documented in your written project scope. We deliver working, clickable demos every two weeks so you see regular progress.",
+      a: "The timeline is established during our initial scoping call and documented in your written project scope. We deliver a working demo every two weeks so you see regular progress.",
     },
     {
       q: "Who owns the code, design assets, and accounts?",
-      a: "You do. Code, designs, and third-party accounts are owned by you from day one. Everything is created in your repositories and infrastructure.",
+      a: "You do. Code, designs and accounts are owned by you from day one. Everything is created in your repositories and infrastructure.",
     },
     {
       q: "Do you offer post-launch support and maintenance?",

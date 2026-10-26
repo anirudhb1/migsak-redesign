@@ -22,7 +22,7 @@ import { useInView, useReducedMotion, useCanHover } from "@/lib/hooks";
  * 7% represents the bright glowing head and trail; 93% is the empty gap.
  * Animating `strokeDashoffset` from 100 down to 0 over 6 seconds causes the 7% segment to travel
  * continuously along the line from Step 01 to Step 04.
- * This runs entirely on the compositor thread with zero layout recalculations.
+ * This runs entirely on the compositor thread without layout recalculations.
  * Each circle's pulse ring is synchronized with matching keyframe delays (0s, 2s, 4s, 5.75s).
  */
 

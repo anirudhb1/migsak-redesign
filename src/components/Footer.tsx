@@ -37,10 +37,9 @@ export default function Footer() {
           <div className="md:col-span-2">
             <Link
               href="/"
-              className="flex items-center gap-2.5 text-2xl font-bold tracking-tight text-white hover:text-violet-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 rounded-md transition-colors"
+              className="flex items-center text-2xl font-bold tracking-tight text-white hover:text-violet-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 rounded-md transition-colors"
               aria-label="Migsak Home"
             >
-              <span className="flex h-2.5 w-2.5 rounded-full bg-violet-400 shadow-[0_0_8px_#a78bfa]" />
               <span>Migsak</span>
             </Link>
             <p className="mt-3.5 text-sm text-[#A8B3CF] max-w-sm leading-relaxed">

@@ -43,9 +43,6 @@ export default function SelectedWork() {
                   <span className="text-xs font-mono text-emerald-400">
                     Mobile App & Platform
                   </span>
-                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold font-mono border border-emerald-500/30 bg-emerald-500/10 text-emerald-300">
-                    Production
-                  </span>
                 </div>
 
                 <h3 className="text-2xl font-bold text-white tracking-tight">
@@ -81,29 +78,40 @@ export default function SelectedWork() {
                 <ul className="mt-6 space-y-2 text-xs sm:text-sm text-[#A8B3CF]">
                   <li className="flex items-center gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                    <span>WhatsApp check-ins & automated renewal nudges</span>
+                    <span>Owner, staff and member portals</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                    <span>Biometric attendance hardware integration</span>
+                    <span>At-risk member tracking with one-tap WhatsApp follow-ups</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                    <span>In-app membership purchases via Razorpay</span>
+                    <span>In-app renewals through Razorpay and biometric attendance</span>
                   </li>
                 </ul>
               </div>
 
-              {/* Stack tags */}
-              <div className="mt-8 pt-5 border-t border-white/[0.08] flex flex-wrap gap-2">
-                {["Flutter", "Node.js", "PostgreSQL", "Razorpay"].map((tech) => (
-                  <span
-                    key={tech}
-                    className="inline-flex items-center rounded-md border border-white/10 bg-white/[0.03] px-2.5 py-1 text-xs font-mono text-zinc-300"
-                  >
-                    {tech}
-                  </span>
-                ))}
+              {/* Stack tags & Project Link */}
+              <div className="mt-8 pt-5 border-t border-white/[0.08] flex flex-wrap items-center justify-between gap-3">
+                <div className="flex flex-wrap gap-2">
+                  {["Flutter", "Node.js", "PostgreSQL", "Razorpay"].map((tech) => (
+                    <span
+                      key={tech}
+                      className="inline-flex items-center rounded-md border border-white/10 bg-white/[0.03] px-2.5 py-1 text-xs font-mono text-zinc-300"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                <a
+                  href="https://recurva.in"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-emerald-400 hover:text-emerald-300 transition-colors"
+                >
+                  <span>Visit recurva.in</span>
+                  <span aria-hidden="true">→</span>
+                </a>
               </div>
             </TiltCard>
           </Reveal>
@@ -115,9 +123,6 @@ export default function SelectedWork() {
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-xs font-mono text-cyan-400">
                     Enterprise Web Presence
-                  </span>
-                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold font-mono border border-cyan-500/30 bg-cyan-500/10 text-cyan-300">
-                    Production
                   </span>
                 </div>
 
@@ -159,29 +164,40 @@ export default function SelectedWork() {
                 <ul className="mt-6 space-y-2 text-xs sm:text-sm text-[#A8B3CF]">
                   <li className="flex items-center gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
-                    <span>20+ specialized product & vendor pages built from scratch</span>
+                    <span>20+ pages</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
-                    <span>Search presence across Dell, HP, Cisco, and Lenovo categories</span>
+                    <span>Search setup</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
-                    <span>Direct quote request pipeline capturing verified B2B leads</span>
+                    <span>A clear path to request a quote</span>
                   </li>
                 </ul>
               </div>
 
-              {/* Stack tags */}
-              <div className="mt-8 pt-5 border-t border-white/[0.08] flex flex-wrap gap-2">
-                {["React", "Tailwind CSS", "Vercel", "B2B SEO"].map((tech) => (
-                  <span
-                    key={tech}
-                    className="inline-flex items-center rounded-md border border-white/10 bg-white/[0.03] px-2.5 py-1 text-xs font-mono text-zinc-300"
-                  >
-                    {tech}
-                  </span>
-                ))}
+              {/* Stack tags & Project Link */}
+              <div className="mt-8 pt-5 border-t border-white/[0.08] flex flex-wrap items-center justify-between gap-3">
+                <div className="flex flex-wrap gap-2">
+                  {["React", "Tailwind CSS", "Vercel"].map((tech) => (
+                    <span
+                      key={tech}
+                      className="inline-flex items-center rounded-md border border-white/10 bg-white/[0.03] px-2.5 py-1 text-xs font-mono text-zinc-300"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                <a
+                  href="https://www.prathiksoftnet.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-cyan-400 hover:text-cyan-300 transition-colors"
+                >
+                  <span>Visit www.prathiksoftnet.com</span>
+                  <span aria-hidden="true">→</span>
+                </a>
               </div>
             </TiltCard>
           </Reveal>
@@ -211,15 +227,15 @@ export default function SelectedWork() {
                   <ul className="mt-5 space-y-2 text-xs sm:text-sm text-[#A8B3CF]">
                     <li className="flex items-center gap-2">
                       <span className="h-1.5 w-1.5 rounded-full bg-violet-400" />
-                      <span>Live presence indicators & room reservation schedule</span>
+                      <span>Live status</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <span className="h-1.5 w-1.5 rounded-full bg-violet-400" />
-                      <span>Anonymous gentle nudge notifications without awkward confrontation</span>
+                      <span>Room reservations that prevent double booking</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <span className="h-1.5 w-1.5 rounded-full bg-violet-400" />
-                      <span>Low-latency state syncing with Redis pub/sub and FastAPI</span>
+                      <span>Anonymous nudges as push notifications</span>
                     </li>
                   </ul>
                 </div>
@@ -256,7 +272,7 @@ export default function SelectedWork() {
 
               {/* Stack tags */}
               <div className="mt-8 pt-5 border-t border-white/[0.08] flex flex-wrap gap-2">
-                {["Flutter", "FastAPI", "PostgreSQL", "Redis", "Firebase", "Cloud Run"].map((tech) => (
+                {["Flutter", "FastAPI", "PostgreSQL", "Redis", "Firebase", "Google Cloud Run"].map((tech) => (
                   <span
                     key={tech}
                     className="inline-flex items-center rounded-md border border-white/10 bg-white/[0.03] px-2.5 py-1 text-xs font-mono text-zinc-300"
