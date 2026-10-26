@@ -53,7 +53,6 @@ export default function Header() {
             className="flex items-center gap-2.5 text-lg font-bold tracking-tight text-white hover:text-violet-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 rounded-full px-2 py-1 transition-colors"
             aria-label="Migsak Home"
           >
-            <span className="flex h-2.5 w-2.5 rounded-full bg-violet-400 shadow-[0_0_8px_#a78bfa] animate-pulse" />
             <span className="font-extrabold tracking-tight">Migsak</span>
           </Link>
 
@@ -65,11 +64,10 @@ export default function Header() {
                 <a
                   key={link.label}
                   href={link.href}
-                  className={`relative px-3.5 py-1.5 rounded-full transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 ${
-                    isActive
+                  className={`relative px-3.5 py-1.5 rounded-full transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 ${isActive
                       ? "text-white bg-white/[0.1] shadow-inner font-semibold"
                       : "hover:text-white hover:bg-white/[0.05]"
-                  }`}
+                    }`}
                 >
                   {link.label}
                   {isActive && (
