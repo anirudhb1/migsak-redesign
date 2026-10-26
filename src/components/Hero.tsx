@@ -84,7 +84,7 @@ export default function Hero() {
               <span className="h-px w-8 bg-gradient-to-r from-transparent to-violet-400/50" aria-hidden="true" />
               <span className="inline-flex items-center gap-2 rounded-full border border-violet-500/25 bg-violet-950/40 px-3.5 py-1 text-xs font-mono font-medium tracking-wide text-violet-300 backdrop-blur-md">
                 <span className="h-1.5 w-1.5 rounded-full bg-violet-400 shadow-[0_0_6px_#a78bfa] animate-ping" />
-                Software Studio · Bengaluru, India
+                Bengaluru, India
               </span>
               <span className="h-px w-8 bg-gradient-to-l from-transparent to-violet-400/50" aria-hidden="true" />
             </div>

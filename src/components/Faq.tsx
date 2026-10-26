@@ -17,7 +17,7 @@ export default function Faq() {
     },
     {
       q: "How is the project timeline established?",
-      a: "The timeline is established during our initial scoping call and documented in your written project scope. We deliver a working demo every two weeks so you see regular progress.",
+      a: "The timeline is established during our initial scoping call. We deliver a working demo every two weeks so you see regular progress.",
     },
     {
       q: "Who owns the code, design assets, and accounts?",

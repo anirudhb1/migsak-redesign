@@ -14,12 +14,7 @@ export default function WhatWeBuild() {
       tag: "Web & Portals",
       title: "Websites and web apps",
       description:
-        "Company websites, dashboards, and portals, built to load fast and be found on search engines.",
-      highlights: [
-        "Company websites, dashboards and portals",
-        "Built to load fast and be found on search",
-        "Role-based authenticated client & admin portals",
-      ],
+        "Company websites, dashboards and portals, built to load fast and be found on search.",
     },
     {
       id: "service-mobile",
@@ -27,23 +22,13 @@ export default function WhatWeBuild() {
       title: "Mobile apps",
       description:
         "iOS and Android apps for customers, field teams and members, built cross-platform and shipped to both stores.",
-      highlights: [
-        "Built cross-platform for iOS and Android",
-        "For customers, field teams and members",
-        "Shipped directly to Apple App Store & Google Play",
-      ],
     },
     {
       id: "service-automation",
       tag: "Workflows & APIs",
       title: "Automation and integrations",
       description:
-        "WhatsApp flows, AI assistants and links to Razorpay, Stripe, Zoho, Tally and ERPNext.",
-      highlights: [
-        "Automated WhatsApp flows and customer intake",
-        "AI assistants and links to Razorpay & Stripe",
-        "Links to Zoho, Tally, and ERPNext",
-      ],
+        "WhatsApp flows, AI assistants and links to Razorpay, Stripe, Zoho, Tally and ERPNext, so work stops moving by copy and paste.",
     },
   ];
 
@@ -182,16 +167,9 @@ export default function WhatWeBuild() {
                   <h3 className="text-2xl font-bold text-white tracking-tight mt-1.5">
                     {currentService.title}
                   </h3>
-                  <ul className="mt-3.5 space-y-2 text-xs sm:text-sm text-[#A8B3CF]">
-                    {currentService.highlights.map((h, i) => (
-                      <li key={i} className="flex items-center gap-2.5">
-                        <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-400 text-[10px] font-bold">
-                          ✓
-                        </span>
-                        <span>{h}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <p className="mt-2.5 text-sm text-[#A8B3CF] leading-relaxed">
+                    {currentService.description}
+                  </p>
                 </div>
 
                 {/* VISUAL 1: Browser Mockup for Websites & Web Apps */}
@@ -251,7 +229,7 @@ export default function WhatWeBuild() {
                       <div className="space-y-2.5">
                         <div className="rounded-xl border border-white/10 bg-white/[0.04] p-2.5">
                           <span className="text-[10px] font-mono text-violet-300">
-                            Cross-platform iOS & Android
+                            Example App Screen
                           </span>
                           <div className="h-2 w-28 rounded bg-white/30 mt-1.5" />
                         </div>
@@ -280,13 +258,13 @@ export default function WhatWeBuild() {
                 {activeTab === 2 && (
                   <div className="rounded-xl border border-white/[0.08] bg-[#090e24] p-6 shadow-inner" aria-hidden="true">
                     <div className="relative flex flex-col items-center gap-8 py-2">
-                      {/* Central Engine Node */}
+                      {/* Central Node */}
                       <div className="rounded-xl border border-violet-500/40 bg-violet-950/40 px-5 py-2.5 text-center shadow-[0_0_15px_rgba(139,92,246,0.3)]">
                         <span className="text-[10px] font-mono text-violet-400 uppercase tracking-widest block">
-                          Backend Core
+                          Example Integration
                         </span>
                         <span className="text-sm font-bold text-white">
-                          Automated Integration Engine
+                          Connected Flows
                         </span>
                       </div>
 

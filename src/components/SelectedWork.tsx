@@ -78,7 +78,7 @@ export default function SelectedWork() {
                 <ul className="mt-6 space-y-2 text-xs sm:text-sm text-[#A8B3CF]">
                   <li className="flex items-center gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                    <span>Owner, staff and member portals</span>
+                    <span>Owner, staff and member portals in one app</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
@@ -94,7 +94,7 @@ export default function SelectedWork() {
               {/* Stack tags & Project Link */}
               <div className="mt-8 pt-5 border-t border-white/[0.08] flex flex-wrap items-center justify-between gap-3">
                 <div className="flex flex-wrap gap-2">
-                  {["Flutter", "Node.js", "PostgreSQL", "Razorpay"].map((tech) => (
+                  {["Flutter", "Node.js", "PostgreSQL"].map((tech) => (
                     <span
                       key={tech}
                       className="inline-flex items-center rounded-md border border-white/10 bg-white/[0.03] px-2.5 py-1 text-xs font-mono text-zinc-300"
@@ -164,15 +164,15 @@ export default function SelectedWork() {
                 <ul className="mt-6 space-y-2 text-xs sm:text-sm text-[#A8B3CF]">
                   <li className="flex items-center gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
-                    <span>20+ pages</span>
+                    <span>Over 20 pages covering each solution, industry, product line and case study</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
-                    <span>Search setup</span>
+                    <span>Search setup with page titles, descriptions, local business data and a sitemap</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
-                    <span>A clear path to request a quote</span>
+                    <span>A clear path to request a quote or call the sales team from every page</span>
                   </li>
                 </ul>
               </div>
@@ -227,7 +227,7 @@ export default function SelectedWork() {
                   <ul className="mt-5 space-y-2 text-xs sm:text-sm text-[#A8B3CF]">
                     <li className="flex items-center gap-2">
                       <span className="h-1.5 w-1.5 rounded-full bg-violet-400" />
-                      <span>Live status</span>
+                      <span>Live status for everyone at home, with how long it lasts</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <span className="h-1.5 w-1.5 rounded-full bg-violet-400" />
@@ -235,7 +235,7 @@ export default function SelectedWork() {
                     </li>
                     <li className="flex items-center gap-2">
                       <span className="h-1.5 w-1.5 rounded-full bg-violet-400" />
-                      <span>Anonymous nudges as push notifications</span>
+                      <span>Anonymous nudges delivered as push notifications</span>
                     </li>
                   </ul>
                 </div>

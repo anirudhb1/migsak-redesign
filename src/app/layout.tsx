@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://migsak.com"),
   keywords: [
     "Migsak",
-    "Bengaluru software studio",
+    "software development Bengaluru",
     "web development",
     "mobile app development",
     "automation",

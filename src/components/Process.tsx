@@ -14,7 +14,7 @@ export default function Process() {
       title: "Scope",
       tagline: "Written scope & fixed quote",
       description:
-        "Map users, screens, and integrations. You receive a detailed written scope and a fixed quote sized to your budget.",
+        "We map the users, screens and integrations, and you get a written scope and a fixed quote sized to your budget.",
       icon: (
         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
@@ -26,7 +26,7 @@ export default function Process() {
       title: "Build in phases",
       tagline: "Bi-weekly clickable milestones",
       description:
-        "Short development cycles, each ending in something clickable and interactive that you can test on real devices.",
+        "Short cycles, each ending in something you can click through.",
       icon: (
         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
@@ -38,7 +38,7 @@ export default function Process() {
       title: "Launch",
       tagline: "Store submission & hosting",
       description:
-        "Apple App Store and Google Play submission, production hosting setup, error monitoring, and complete operational handover.",
+        "Store submission, hosting, monitoring and a handover your team can follow.",
       icon: (
         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
@@ -50,7 +50,7 @@ export default function Process() {
       title: "Support",
       tagline: "Optional monthly plan",
       description:
-        "An optional monthly support plan to handle ongoing maintenance, dependency updates, and feature expansions.",
+        "An optional monthly plan for fixes, updates and new features.",
       icon: (
         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -84,7 +84,7 @@ export default function Process() {
             </span>
           </h2>
           <p className="mt-4 text-base text-[#A8B3CF] leading-relaxed">
-            A straightforward four-step execution process designed to prevent surprises, scope creep, and hidden costs.
+            From first call to live product.
           </p>
         </Reveal>
 

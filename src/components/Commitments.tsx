@@ -4,30 +4,10 @@ import Reveal from "./Reveal";
 
 export default function Commitments() {
   const commitments = [
-    {
-      title: "One-day response time",
-      rule: "A reply to every message within one working day",
-      explanation:
-        "No disappearing or waiting days for an update. Every email and question is acknowledged and answered promptly.",
-    },
-    {
-      title: "Fortnightly working demos",
-      rule: "A working demo every two weeks",
-      explanation:
-        "You never have to guess what is happening behind the scenes. Review clickable, testable milestones on real devices.",
-    },
-    {
-      title: "Intellectual property ownership",
-      rule: "Code, designs and accounts owned by you from day one",
-      explanation:
-        "All code repositories, design assets, domain names, and third-party hosting accounts are created in your name.",
-    },
-    {
-      title: "Written quotes for changes",
-      rule: "Any change to scope quoted in writing before we start it",
-      explanation:
-        "If project requirements evolve, we assess the impact, provide a written quote, and wait for your go-ahead first.",
-    },
+    "A reply to every message within one working day",
+    "A working demo every two weeks",
+    "Code, designs and accounts owned by you from day one",
+    "Any change to scope quoted in writing before we start it",
   ];
 
   return (
@@ -44,30 +24,30 @@ export default function Commitments() {
           <div className="inline-flex items-center gap-3 mb-4">
             <span className="h-px w-8 bg-gradient-to-r from-transparent to-violet-400/50" aria-hidden="true" />
             <span className="inline-flex items-center rounded-full border border-violet-500/25 bg-violet-950/40 px-3.5 py-1 text-xs font-mono font-medium tracking-wide text-violet-300">
-              What you can hold us to
+              Commitments
             </span>
             <span className="h-px w-8 bg-gradient-to-l from-transparent to-violet-400/50" aria-hidden="true" />
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
             <span className="bg-gradient-to-r from-white via-slate-100 to-violet-200 bg-clip-text text-transparent">
-              What You Can Hold Us To
+              Commitments
             </span>
           </h2>
           <p className="mt-4 text-base text-[#A8B3CF] leading-relaxed">
-            Clear standards we promise in writing for every single client engagement.
+            What you can hold us to.
           </p>
         </Reveal>
 
         {/* 4 Commitments Grid with Staggered Spring-Pop Tick Icons */}
         <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2">
-          {commitments.map((c, idx) => (
+          {commitments.map((title, idx) => (
             <Reveal
               key={idx}
               delayMs={idx * 90}
               className="flex flex-col"
             >
-              <div className="glass-card flex-1 flex items-start gap-4 rounded-2xl p-6 sm:p-7 hover:border-violet-400/30 transition-all">
+              <div className="glass-card flex-1 flex items-center gap-4 rounded-2xl p-6 sm:p-7 hover:border-violet-400/30 transition-all">
                 {/* Spring Pop Icon */}
                 <div
                   style={{ animationDelay: `${idx * 120 + 200}ms` }}
@@ -77,14 +57,8 @@ export default function Commitments() {
                 </div>
                 <div>
                   <h3 className="text-base sm:text-lg font-bold text-white tracking-tight">
-                    {c.rule}
+                    {title}
                   </h3>
-                  <p className="mt-1 text-xs font-mono text-violet-300">
-                    {c.title}
-                  </p>
-                  <p className="mt-2.5 text-sm text-[#A8B3CF] leading-relaxed">
-                    {c.explanation}
-                  </p>
                 </div>
               </div>
             </Reveal>

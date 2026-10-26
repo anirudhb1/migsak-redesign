@@ -69,15 +69,15 @@ export default function ExecutionPathway() {
       title: "Scope",
       short: "Written scope & fixed quote",
       detail:
-        "Map users, screens, and integrations. You receive a detailed written scope and a fixed quote sized to your budget.",
+        "We map the users, screens and integrations, and you get a written scope and a fixed quote sized to your budget.",
       badge: null,
     },
     {
       step: "02",
       title: "Build in phases",
-      short: "Bi-weekly testable milestones",
+      short: "Clickable short cycles",
       detail:
-        "Short development cycles, each ending in something clickable and interactive that you can test on real devices.",
+        "Short cycles, each ending in something you can click through.",
       badge: "Demo every two weeks",
     },
     {
@@ -85,7 +85,7 @@ export default function ExecutionPathway() {
       title: "Launch",
       short: "Store submission & hosting",
       detail:
-        "Apple App Store and Google Play submission, production hosting setup, error monitoring, and complete operational handover.",
+        "Store submission, hosting, monitoring and a handover your team can follow.",
       badge: null,
     },
     {
@@ -93,7 +93,7 @@ export default function ExecutionPathway() {
       title: "Support",
       short: "Optional monthly plan",
       detail:
-        "An optional monthly support plan to handle ongoing maintenance, dependency updates, and feature expansions.",
+        "An optional monthly plan for fixes, updates and new features.",
       badge: null,
     },
   ];

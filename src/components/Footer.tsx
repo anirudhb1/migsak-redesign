@@ -43,7 +43,7 @@ export default function Footer() {
               <span>Migsak</span>
             </Link>
             <p className="mt-3.5 text-sm text-[#A8B3CF] max-w-sm leading-relaxed">
-              Web and mobile apps, connected to the way your business runs. Designed, engineered, and maintained from Bengaluru, India.
+              Web and mobile apps, connected to the way your business runs.
             </p>
             <div className="mt-5 text-sm text-[#A8B3CF] space-y-1.5">
               <p>
